@@ -6,7 +6,7 @@ pipeline {
             steps (
                 checkout([$class: 'GitSCM',
                 branches: [[name: '*/main]],
-                userRemoteConfigs: [[url: 'https://github.com/suparna-here-123/PES1UG22CS630_Jenkins']]
+                userRemoteConfigs: [[url: 'https://github.com/suparna-here-123/PES1UG22CS630_Jenkins.git']]
                 )
             }
         }

@@ -3,19 +3,18 @@ pipeline {
 
     stages {
         stage('Clone Repository') {
-            steps (
-                checkout([$class: 'GitSCM',
-                branches: [[name: '*/main]],
-                userRemoteConfigs: [[url: 'https://github.com/suparna-here-123/PES1UG22CS630_Jenkins.git']]
-                )
+            steps {
+                checkout([
+                    $class: 'GitSCM',
+                    branches: [[name: '*/main']],
+                    userRemoteConfigs: [[url: 'https://github.com/suparna-here-123/PES1UG22CS630_Jenkins.git']]
+                ])
             }
         }
 
         stage('Build') {
             steps {
-                build 'PES1UG22CS630-1'
                 sh 'g++ main/hello.cpp -o output'
-            
             }
         }
 
@@ -27,7 +26,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                echo 'deploy'
+                echo 'Deploying application...'
             }
         }
     }
